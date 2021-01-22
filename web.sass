@@ -14,7 +14,7 @@
 
 html
   body
-    overflow-y: hidden
+    overflow-x: hidden
 
     article
       width: 100vw
@@ -23,7 +23,10 @@ html
     .bgs
       position: absolute
       width: 100vw
+      display: flex
+      align-items: flex-start
       min-height: 100vh
+      flex-direction: column
       z-index: -5
       img
         width: 100vw
@@ -44,11 +47,16 @@ html
   top: 10vh
   transform: translateX(-50%)
 
+article p
+  @extend .centered
+  margin-top: 21%
+  color: #fff
+  font-size: 130%
+
 .centered
   transform: translateX(-50%)
   position: absolute
   left: 50%
-
 .letter
   @extend .centered
   svg
@@ -62,7 +70,9 @@ html
   top: 30vh
 
 .scroll-down
-  @extend .centered
+  transform: translateX(-50%)
+  position: fixed
+  left: 50%
   bottom: 10vh
   color: #fff
   font-size: 300%

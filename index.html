@@ -4,18 +4,30 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/queryjs@latest/dist/query.js"></script>
   <!-- Set language -->
   <script type="text/javascript">
-/* global $ */
-$.sel('html').lang = $.lang
+/* global $, $$*/
+$$('html').lang = $.lang
   </script>
   <head>
     <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/8a7d9bf784.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="web.min.css">
     <title>Hogwartz RP</title>
+    <script>
+/* global $$ */
+window.addEventListener('scroll', (event) => {
+  const scroll = this.scrollY
+  if (scroll >= window.innerHeight) {
+    $$('.scroll-down').style.display = 'none'
+  } else {
+    $$('.scroll-down').style.display = 'block'
+  }
+})
+    </script>
   </head>
   <body>
     <div class="bgs">
       <img src="bg/main.jpg">
+      <img src="bg/express.jpg">
     </div>
     <article>
       <h1 class="title">Hogwartz RP</h1>
@@ -28,6 +40,11 @@ document.write($.lang.includes('de') ? 'Wartest du noch auf deinen Brief?' : 'Wa
       <div class="scroll-down">
         <i class="fas fa-chevron-down"></i>
       </div>
+    </article>
+    <article>
+      <p><script type="text/javascript">
+document.write($.lang.includes('de') ? 'Hogwartz RP ist ein Multiplayer Role-Play Game in dem du einen/eine 11 jährigen Zauberer / Hexe  spielst. Zusammen mit anderen Schülern erlebst du Abenteuer in Hogwarts und dem Rest der magischen Welt. Alle 28 Tage wird der Hauspokal verliehen. Sollte dein Haus die meisten Punkte haben kriegst du tolle Belohnungen. Immer noch nicht überzeugt? Du kannst außerdem in Hogwarts mit deinem eigenen Besen fliegen, dich mit anderen duellieren, deinen eigenen Patronus beschwören, dich in einen Animagus verwandeln und vieles mehr.' : 'Hogwartz RP is a multiplayer role-play game in which you play an 11 year old wizard / witch. Together with other students you will experience adventures at Hogwarts and the rest of the magical world. The house cup is awarded every 28 days. If your house has the most points, you will get great rewards. Still not convinced? You can also fly with your own broom at Hogwarts, duel with others, summon your own Patronus, transform into an Animagus and much more.')
+      </script></p>
     </article>
   </body>
 </html>
