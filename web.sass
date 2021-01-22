@@ -41,5 +41,42 @@ html
   font-size: 850%
   color: #ffa500
   text-shadow: -3px 3px #000
-  top: 10vw
+  top: 10vh
   transform: translateX(-50%)
+
+.centered
+  transform: translateX(-50%)
+  position: absolute
+  left: 50%
+
+.letter
+  @extend .centered
+  svg
+    width: 60% !important
+    height: 60% !important
+    margin-left: 20%
+  h3
+    text-align: center
+    font-size: 150%
+  color: #ddb876
+  top: 30vh
+
+.scroll-down
+  @extend .centered
+  bottom: 10vh
+  color: #fff
+  font-size: 300%
+  animation-name: go-down
+  animation-duration: 2s
+  animation-iteration-count: infinite
+
+
+::selection
+  background: #09a1a6
+  color: #fff
+
+@keyframes go-down
+  from
+    bottom: 10vh
+  to
+    bottom: 5vh
