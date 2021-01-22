@@ -90,3 +90,29 @@ article p
     bottom: 10vh
   to
     bottom: 5vh
+
+button
+  background: none
+  border: 1px solid #ddb876
+  border-radius: 30px
+  font-size: 175%
+  color: #ddb876
+  font-family: 'Harry P'
+  padding: 0.5%
+  outline: none
+  &:hover
+    cursor: pointer
+    background: #ffa500
+    color: #fff
+    border: 1px solid #ffa500
+  &.join
+    @extend .centered
+    font-size: 300%
+    margin-top: 20vw
+
+body img.bgm
+  z-index: -50
+  width: 100vw
+  max-height: 100vh
+body.nos
+  overflow: hidden
