@@ -12,5 +12,6 @@ function parseQueryString () {
 
 session.accessToken = parseQueryString().token
 session.refreshToken = parseQueryString().refresh
-window.location = 'index.html'
+setTimeout(() => { window.location = 'index.html' }, 10)
 </script>
+<body style="background:#282828"></body>
