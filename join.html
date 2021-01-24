@@ -9,6 +9,11 @@ $$('html').lang = $.lang
   </script>
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/sessionjs@latest/main.js"></script>
+    <script>
+/* global session */
+if (session.accessToken && session.refreshToken) { window.location = 'dashboard.html' }
+    </script>
     <script src="https://kit.fontawesome.com/8a7d9bf784.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="web.min.css">
     <title>Join Hogwartz RP</title>
