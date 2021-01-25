@@ -4,9 +4,27 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/sessionjs@latest/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/zGET@latest/dist/bundle.js"></script>
     <script>
-/* global session */
+/* global session, zGET */
 if (session.session) {} else { window.location = 'index.html' }
+
+window.logout = () => {
+  session.session = undefined
+  window.location = window.location.href
+}
+
+zGET({ url: 'https://hogwartzrp-bot.greencoder001.repl.co/api/token?session=' + session.session }).then((tokenPromise) => {
+  while (window.token === undefined) {
+    zGET({ url: tokenPromise }).then((token) => {
+      if (token === 'PE') {
+        window.logout()
+      } else if (token === 'NAY') {} else {
+        window.token = token
+      }
+    })
+  }
+})
     </script>
   </head>
   <body>
