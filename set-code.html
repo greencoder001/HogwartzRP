@@ -10,8 +10,7 @@ function parseQueryString () {
   return p
 }
 
-session.accessToken = parseQueryString().token
-session.refreshToken = parseQueryString().refresh
+session.session = parseQueryString().session
 setTimeout(() => { window.location = 'index.html' }, 10)
 </script>
 <body style="background:#282828"></body>
