@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="web.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/sessionjs@latest/main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/greencoder001/zGET@latest/dist/bundle.js"></script>
     <script>
@@ -14,6 +15,14 @@ window.logout = () => {
   window.location = window.location.href
 }
 
+window.tokenReadyEvents = []
+
+window.tokenReadyEvent = () => {
+  window.tokenReadyEvents.forEach((handler) => {
+    handler()
+  })
+}
+
 const tp = (tokenPromise) => {
   zGET({ url: tokenPromise }).then((token) => {
     if (token === 'PE') {
@@ -22,6 +31,7 @@ const tp = (tokenPromise) => {
       tp(tokenPromise)
     } else {
       window.token = token
+      window.tokenReadyEvent()
     }
   })
 }
@@ -29,9 +39,16 @@ const tp = (tokenPromise) => {
 zGET({ url: 'https://hogwartzrp-bot.greencoder001.repl.co/api/token?session=' + session.session }).then((tokenPromise) => {
   tp(tokenPromise)
 })
+
+window.tokenReadyEvents.push(() => {
+  zGET({ url: 'https://HogwartzRP-Bot.greencoder001.repl.co/api/profile?token=' + window.token }).then((userinfo) => {
+    userinfo = JSON.parse(userinfo)
+    document.querySelector('#greeting').innerText = 'Hi ' + userinfo.raw.username + '!'
+  })
+})
     </script>
   </head>
-  <body>
-
+  <body class="stbr">
+    <h1 id="greeting">Hi!</h1>
   </body>
 </html>
