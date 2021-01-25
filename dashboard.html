@@ -14,16 +14,20 @@ window.logout = () => {
   window.location = window.location.href
 }
 
+const tp = (tokenPromise) => {
+  zGET({ url: tokenPromise }).then((token) => {
+    if (token === 'PE') {
+      window.logout()
+    } else if (token === 'NAY') {
+      tp(tokenPromise)
+    } else {
+      window.token = token
+    }
+  })
+}
+
 zGET({ url: 'https://hogwartzrp-bot.greencoder001.repl.co/api/token?session=' + session.session }).then((tokenPromise) => {
-  while (window.token === undefined) {
-    zGET({ url: tokenPromise }).then((token) => {
-      if (token === 'PE') {
-        window.logout()
-      } else if (token === 'NAY') {} else {
-        window.token = token
-      }
-    })
-  }
+  tp(tokenPromise)
 })
     </script>
   </head>
