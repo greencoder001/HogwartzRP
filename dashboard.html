@@ -26,10 +26,13 @@ window.tokenReadyEvent = () => {
 const tp = (tokenPromise) => {
   zGET({ url: tokenPromise }).then((token) => {
     if (token === 'PE') {
-      window.logout()
+      // window.logout()
+      console.log('PE')
     } else if (token === 'NAY') {
+      console.log('PE')
       tp(tokenPromise)
     } else {
+      console.log(token)
       window.token = token
       window.tokenReadyEvent()
     }
